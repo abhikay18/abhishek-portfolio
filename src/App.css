@@ -1,48 +1,352 @@
-.App {
-    text-align: center;
+.app {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #0c0d0d;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+.intro-container {
+  position: relative;
+  width: 90%;
+  max-width: 1400px;
+  height: 90vh;
+  max-height: 700px;
+  margin: 0.5% auto 5%;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #2c003e, #000b4d);
+  padding: 20px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.intro-image {
+  width: 280px;
+  height: 420px;
+  position: relative;
+  object-fit: cover;
+  border-radius: 20px;
+  max-width: 100%;
+  max-height: 80vh;
 }
 
-.App-header {
-    min-height: 100vh;
-    display: flex;
+.container {
+  display: grid;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0.5% auto;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  border-radius: 30px;
+  padding: 20px;
+  background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1), transparent),
+               radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1), transparent),
+               linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-repeat: no-repeat; 
+  border: 1px solid #1f2833;
+  font-family: Arial, sans-serif;
+  color: #000;
+  position: relative;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  height: 700px;
+}
+
+.header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d1c8b3;
+  border-radius: 50px;
+  padding: 20px;
+  cursor: url('rocket.png'), auto;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  z-index: 1;
+  color: #ffffff;
+}
+
+.header nav {
+  margin-left: auto;
+  z-index: 1;
+}
+
+.header nav a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.header nav a:last-child {
+  margin-right: 0;
+}
+
+.intro {
+  grid-column: 1 / 4;
+  background-color: #d1c8b3;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.intro h2 {
+  font-size: 48px;
+  margin: 0 0 10px 0;
+  color: #fefefe;
+}
+
+.profile-image-container {
+  grid-column: 4 / 4;
+  background-color: #000000;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  height: 330px;
+  opacity: 1; 
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bio {
+  grid-column: 1 / 3;
+  grid-row: 3 / 9 ;
+  position: relative;
+  z-index: 1;
+  background-color: #d1c8b3;
+  border-radius: 20px;
+  padding: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+@keyframes ffadeInOut {
+  0% {
+    box-shadow: 0 0 0px rgba(197, 9, 12, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(232, 220, 1, 0.8); /* Glowing state */
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(197, 9, 12, 0); /* Fade out */
+  }
+}
+
+/* Applying the animation when the glow class is added */
+.bio.glow {
+  animation: ffadeInOut 3s ease-in-out forwards; /* Single animation cycle */
+}
+
+.bio-text {
+  z-index: 1;
+  color: #ffffff;
+}
+
+.projects {
+  grid-column: 5 / 7;
+  grid-row: 2 / 8;
+  background-color: #d1c8b3;
+  color: #fefefe;
+  border-radius: 20px;
+  padding: 20px;
+  transition: box-shadow 0.3s ease;
+}
+/* Single animation to fade in and out */
+
+/* Single animation to fade in and out */
+@keyframes fadeInOut {
+  0% {
+    box-shadow: 0 0 0px rgba(197, 9, 12, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(197, 9, 12, 0.8); /* Glowing state */
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(197, 9, 12, 0); /* Fade out */
+  }
+}
+
+/* Applying the animation when the glow class is added */
+.projects.glow {
+  animation: fadeInOut 3s ease-in-out forwards; /* Single animation cycle */
+}
+
+
+.projects h3 {
+  margin: 0 0 10px 0;
+}
+
+.project-images {
+  display: flex;
+  gap: 10px;
+}
+
+.project-images img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.contact {
+  grid-column: 3 / 5;
+  grid-row: 3 / 9;
+  background-color: #4b4a43;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: #fefefe;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden; /* Prevent overflow of content from the container */
+}
+
+.contact-info {
+  position: relative;
+  overflow-y: auto; /* Enable vertical scrolling if the content exceeds the height */
+  flex-grow: 1;
+  margin-top: 20px;
+  height: 300px; /* Limit the height to prevent overflow from .contact */
+}
+
+.contact-info ul {
+  margin: 0;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 15px;
+}
+
+
+@keyframes fffadeInOut {
+  0% {
+    box-shadow: 0 0 0px rgba(197, 9, 12, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(4, 235, 54, 0.8); /* Glowing state */
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(197, 9, 12, 0); /* Fade out */
+  }
+}
+
+/* Applying the animation when the glow class is added */
+.contact.glow {
+  animation: fffadeInOut 3s ease-in-out forwards; /* Single animation cycle */
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.arrow {
+  align-self: flex-end;
+}
+
+.footer {
+  grid-column: 5 / -1;
+  grid-row:  8 / 9;
+  display: flex;
+  color: #fefefe;
+  justify-content: flex-end;
+  gap: 20px;
+  background-color: #d1c8b3;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+/* Ensure particle backgrounds are responsive */
+#particles-section2 canvas,
+#particles1-section1 canvas,
+#particles-section3 canvas,
+#particles-section4 canvas,
+#particles-section5 canvas,
+#particles-section6 canvas,
+#particles-section7 canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 20px;
+  z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    height: auto;
+  }
+
+  .intro {
+    grid-column: 1 / -1;
+  }
+
+  .profile-image-container {
+    grid-column: 1 / -1;
+    height: 400px;
+  }
+
+  .bio {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .projects {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .contact {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .footer {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-container {
+    height: 500vh;
+  }
+
+  .intro-image {
+    width: 80%;
+    height: auto;
+    max-height: 70vh;
+  }
+
+  .intro h2 {
+    font-size: 36px;
+  }
+
+  .contact h2 {
+    font-size: 28px;
+  }
+
+  .header {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
+    align-items: flex-start;
+  }
 
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-#tsparticles {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    left: 0;
-    top: 0;
-    z-index: -1;
+  .header nav {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }

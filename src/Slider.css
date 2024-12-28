@@ -1,0 +1,93 @@
+.sliders {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden; 
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.slide-content {
+  padding: 10px;
+  max-height: 40%; /* Take the remaining 40% height */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  border-bottom: #ddd;
+  /* Smooth vertical scrolling */
+}
+
+/* Hide scrollbar for modern browsers */
+.slide-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Edge */
+}
+
+.slide-content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+  height: 300px; /* Fixed height for consistency */
+  scroll-behavior: smooth; /* Smooth scroll for transitions */
+}
+
+.slide-image {
+  width: 100%;
+  height: 60%; /* Take 60% of the container height */
+  max-height: 300px; /* Limit the height for better responsiveness */
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+.slide-content {
+  padding: 10px;
+  max-height: 40%; /* Take the remaining 40% height */
+  overflow-y: auto;
+  scroll-behavior: smooth; /* Smooth vertical scrolling */
+}
+
+.slide-content h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.slide-content p {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 255px;
+}
+
+.prev,
+.next {
+  background: #51535400;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+  background: #0056b3;
+}
+
+.prev:active,
+.next:active {
+  transform: scale(0.95);
+}
